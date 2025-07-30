@@ -1,4 +1,4 @@
-package Arrays;
+
 import java.util.Arrays;
 public class update {
     public static void updateArray(int[] marks) {

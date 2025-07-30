@@ -1,4 +1,3 @@
-package Arrays;
 
 public class largest {
     public static void largest(int[] digit) {

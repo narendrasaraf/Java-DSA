@@ -2,7 +2,6 @@
 // A peak element is defined as an element greater than both of its neighbors.
 // Formally, if arr[i] is the peak element, arr[i - 1] < arr[i] and arr[i + 1] < arr[i].
 
-package Arrays;
 import java.util.*;
 public class peakElement {
     public static int findpeak(int[] nums) {

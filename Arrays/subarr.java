@@ -1,4 +1,4 @@
-package Arrays;
+
 
 public class subarr {
     public static void subarray(int[] arr) {

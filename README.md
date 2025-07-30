@@ -6,9 +6,13 @@ I’m learning core concepts first, then solving problems step-by-step to build 
 ## 🧠 Current Focus
 
 - Arrays ✅
-- Strings 🔄
+- Strings ✅
+- ArrayList ✅
+- Recursion ✅
+- Linked List 🔜
+- Tries 🔜
+- heap 🔜
 - Hashing 🔜
-- Recursion 🔜
 - Sorting & Searching 🔜
 
 ## 📌 Goals

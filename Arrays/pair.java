@@ -1,5 +1,3 @@
-package Arrays;
-
 public class pair {
     public static void pair(int[] arr) {
         // int start=0;

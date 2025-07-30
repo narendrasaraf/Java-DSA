@@ -1,4 +1,3 @@
-package Arrays;
 
 public class MaxSubArrSum {
     public static void MaxSum(int[] arr) {
