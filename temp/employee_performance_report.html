@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Performance – Department Distribution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem 2rem 1rem;
+            line-height: 1.6;
+            background-color: #f9fafb;
+            color: #111827;
+        }
+        h1, h2 {
+            color: #111827;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+        pre {
+            background: #0b1020;
+            color: #e5e7eb;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }
+        code {
+            font-family: "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+        }
+        .meta {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <header class="card">
+        <h1>Employee Performance – Department Distribution</h1>
+        <p>
+            This report analyzes the distribution of employees across departments
+            for a technology company operating in multiple regions. The goal is
+            to support HR and executive decision-making about resource allocation,
+            high-performing departments, and recruitment strategy.
+        </p>
+        <p class="meta">
+            Generated using Python (pandas + matplotlib).<br>
+            Student email: 23f2001288@ds.study.iitm.ac.in
+        </p>
+    </header>
+
+    <section class="card">
+        <h2>Department Distribution Visualization</h2>
+        <p>
+            The bar chart below shows how many employees work in each department.
+            This helps identify over- or under-staffed areas and guides strategic
+            workforce planning.
+        </p>
+        <img src="department_distribution.png" alt="Employee count by department">
+    </section>
+
+    <section class="card">
+        <h2>Python Source Code</h2>
+        <p class="meta">
+            Full script used to load data, compute the Sales department frequency,
+            and generate the visualization and this HTML report.
+        </p>
+        <pre><code>&quot;&quot;&quot;
+Employee Performance Visualization
+Business Case: Department-wise analysis for HR &amp; Executives.
+
+This script:
+1. Loads employee performance data from a CSV file.
+2. Calculates and prints the frequency of employees in the &quot;Sales&quot; department.
+3. Plots the distribution of employees across departments (bar chart).
+4. Saves the plot as a PNG image.
+5. Generates an HTML report that includes:
+   - A title and short description
+   - The department distribution visualization
+   - The full Python source code (this file) for reference.
+
+Student email (for verification in ChatGPT conversation and code):
+23f2001288@ds.study.iitm.ac.in
+&quot;&quot;&quot;
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from pathlib import Path
+import html
+
+# ---------- Configuration ----------
+CSV_PATH = &quot;employee_performance.csv&quot;   # &lt;-- put your dataset file name here
+PLOT_PATH = &quot;department_distribution.png&quot;
+HTML_PATH = &quot;employee_performance_report.html&quot;
+
+
+def main():
+    # ---------- 1. Load the employee data ----------
+    # Assumes the CSV has a column named &quot;Department&quot;
+    df = pd.read_csv(CSV_PATH)
+
+    # ---------- 2. Frequency count for the &quot;Sales&quot; department ----------
+    sales_count = (df[&quot;Department&quot;] == &quot;Sales&quot;).sum()
+    print(f&quot;Number of employees in the &#x27;Sales&#x27; department: {sales_count}&quot;)
+
+    # ---------- 3. Histogram / distribution of departments ----------
+    # For categorical data like departments, we use a bar chart of value counts.
+    dept_counts = df[&quot;Department&quot;].value_counts().sort_index()
+
+    plt.figure(figsize=(10, 6))
+    dept_counts.plot(kind=&quot;bar&quot;)
+
+    plt.title(&quot;Employee Count by Department&quot;, fontsize=16)
+    plt.xlabel(&quot;Department&quot;, fontsize=12)
+    plt.ylabel(&quot;Number of Employees&quot;, fontsize=12)
+    plt.xticks(rotation=45, ha=&quot;right&quot;)
+    plt.grid(axis=&quot;y&quot;, linestyle=&quot;--&quot;, alpha=0.5)
+    plt.tight_layout()
+
+    # Save the visualization as a PNG image
+    plt.savefig(PLOT_PATH, dpi=150, bbox_inches=&quot;tight&quot;)
+    plt.close()
+
+    # ---------- 4. Create an HTML file with the visualization + code ----------
+    # Try to read this script source code so it can be embedded in the HTML
+    try:
+        code_text = Path(__file__).read_text(encoding=&quot;utf-8&quot;)
+    except NameError:
+        # __file__ may not exist in some environments (like notebooks),
+        # fallback to a simple message.
+        code_text = &quot;# Source code not available via __file__ in this environment.&quot;
+
+    code_html = html.escape(code_text)
+
+    html_content = f&quot;&quot;&quot;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Employee Performance – Department Distribution&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;style&gt;
+        body {{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem 2rem 1rem;
+            line-height: 1.6;
+            background-color: #f9fafb;
+            color: #111827;
+        }}
+        h1, h2 {{
+            color: #111827;
+        }}
+        .card {{
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+        }}
+        img {{
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }}
+        pre {{
+            background: #0b1020;
+            color: #e5e7eb;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+        }}
+        code {{
+            font-family: &quot;JetBrains Mono&quot;, &quot;Fira Code&quot;, Menlo, Consolas, monospace;
+        }}
+        .meta {{
+            font-size: 0.85rem;
+            color: #6b7280;
+        }}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class=&quot;card&quot;&gt;
+        &lt;h1&gt;Employee Performance – Department Distribution&lt;/h1&gt;
+        &lt;p&gt;
+            This report analyzes the distribution of employees across departments
+            for a technology company operating in multiple regions. The goal is
+            to support HR and executive decision-making about resource allocation,
+            high-performing departments, and recruitment strategy.
+        &lt;/p&gt;
+        &lt;p class=&quot;meta&quot;&gt;
+            Generated using Python (pandas + matplotlib).&lt;br&gt;
+            Student email: 23f2001288@ds.study.iitm.ac.in
+        &lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;section class=&quot;card&quot;&gt;
+        &lt;h2&gt;Department Distribution Visualization&lt;/h2&gt;
+        &lt;p&gt;
+            The bar chart below shows how many employees work in each department.
+            This helps identify over- or under-staffed areas and guides strategic
+            workforce planning.
+        &lt;/p&gt;
+        &lt;img src=&quot;{PLOT_PATH}&quot; alt=&quot;Employee count by department&quot;&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;card&quot;&gt;
+        &lt;h2&gt;Python Source Code&lt;/h2&gt;
+        &lt;p class=&quot;meta&quot;&gt;
+            Full script used to load data, compute the Sales department frequency,
+            and generate the visualization and this HTML report.
+        &lt;/p&gt;
+        &lt;pre&gt;&lt;code&gt;{code_html}&lt;/code&gt;&lt;/pre&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&quot;&quot;&quot;
+
+    Path(HTML_PATH).write_text(html_content, encoding=&quot;utf-8&quot;)
+    print(f&quot;HTML report saved to: {HTML_PATH}&quot;)
+    print(f&quot;Plot image saved to:   {PLOT_PATH}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+    </section>
+</body>
+</html>
