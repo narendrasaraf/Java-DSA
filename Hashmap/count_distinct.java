@@ -11,5 +11,6 @@ public class count_distinct {
         }
 
         System.out.println("Distinct Element in Set are "+Set.size());
+        System.out.println("Distinct Element in Set are "+Set.size());
     }
 }
