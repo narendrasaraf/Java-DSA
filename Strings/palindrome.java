@@ -12,7 +12,7 @@ public class palindrome {
         return true;
     }
     public static void main(String[] args) {
-        String str="noon";
+        String str="abcderrdcba";
         System.out.println(palindromeCheck(str));
     }
 }
