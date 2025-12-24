@@ -11,9 +11,8 @@ public class largest_odd_inSTR {
                     max=digit;
                 }
             }
-            
             else {
-                for() {
+                for(int j=0;j<s.length();j++) {
                 
             }
                 continue;
