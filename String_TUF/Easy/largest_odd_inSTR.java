@@ -16,6 +16,7 @@ public class largest_odd_inSTR {
                 
             }
                 continue;
+                String s=s.substring(i);
             }
         }
         return Integer.toString(max);
