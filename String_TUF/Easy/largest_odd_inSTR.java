@@ -14,9 +14,14 @@ public class largest_odd_inSTR {
             else {
                 for(int j=0;j<s.length();j++) {
                 
+                    String s1=s.substring(i);
+                    int num=Integer.parseInt(s1);
+                    if(num%2!=0 && num>max) {
+                        max=num;
+                    }
+                
             }
                 continue;
-                String s=s.substring(i);
             }
         }
         return Integer.toString(max);
