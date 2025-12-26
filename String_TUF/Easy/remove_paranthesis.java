@@ -8,6 +8,8 @@ public class remove_paranthesis {
             if (ch=='(') {
                 if (depth>0) {
                     sb.append(ch);
+kqo
+
                 }
                 depth++;
             } 
