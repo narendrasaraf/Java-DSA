@@ -9,6 +9,7 @@ public class remove_paranthesis {
                 if (depth>0) {
                     sb.append(ch);
 
+                    bhjyg
                 }
                 depth++;
             } 
