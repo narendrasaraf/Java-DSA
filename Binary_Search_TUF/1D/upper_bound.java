@@ -15,4 +15,7 @@ public class upper_bound {
     }
     return low;
     }
+    public static void main(String[] args) {
+        
+    }
 }
