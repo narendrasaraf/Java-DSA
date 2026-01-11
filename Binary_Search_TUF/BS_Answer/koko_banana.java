@@ -15,7 +15,7 @@ public class koko_banana {
                 low=mid+1;
             }
         }
-        return ans;
+        return low;
     }
     public static long calculateHours(int[] piles,int hourly) {
         long hours=0;
