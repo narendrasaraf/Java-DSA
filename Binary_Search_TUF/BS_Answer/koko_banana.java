@@ -37,6 +37,6 @@ public class koko_banana {
         int[] piles={30,11,23,4,20};
         int h=6;
         System.out.println(minEatingSpeed(piles,h));
-        System.out.println(minEatingSpeed(piles,h)); 
+        System.out.println(minEatingSpeed(piles,h));  
     }
 }
