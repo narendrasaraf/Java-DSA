@@ -1,25 +1,32 @@
 package Recursion;
 // Print number from n to 1
 public class intro {
-    public static void PrintNum(int n) {
-        if (n == 1) {
-            System.out.print(n);
-            return;
+    public static void decorder(int n) {
+        if (n==1) {
+        System.err.println(n);
+        return;
         }
-        
+
         System.out.print(n+" ");
-        PrintNum(n - 1);
+        decorder(n-1);
     }
-    public static void PrintInc(int n,int target) {
-        if (n==target) {
+
+    public static void incorder(int n) {
+        if(n==1) {
+            System.out.print(n+" ");
             return;
         }
+        incorder(n-1);
         System.out.print(n+" ");
-        PrintInc(n+1, target);
     }
     public static void main(String[] args) {
-        PrintNum(10);
+        decorder(10);
+        decorder(1);
+        // System.out.println();
+        // PrintInc(1, 20);
+
+        incorder(5);
         System.out.println();
-        PrintInc(1, 20);
+        incorder(1);
     }
 }
