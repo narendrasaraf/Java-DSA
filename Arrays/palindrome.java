@@ -8,5 +8,6 @@ public class palindrome {
         x=x/10;
     }
     return original == reversed;
+    
     }
 }
