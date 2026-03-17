@@ -4,6 +4,8 @@ public class check_if_sorted_rotated {
         for(int i=1;i<arr.length;i++) {
             if(arr[i]<arr[i-1]) {
                 count++;
+
+                
                 
             }
         }
