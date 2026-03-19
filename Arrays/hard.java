@@ -1,7 +1,7 @@
 import java.util.*;
 
 class hard {
-    
+    static final int MOD = 1000000007;
 
     List<Long> list;
     long mul, add;
