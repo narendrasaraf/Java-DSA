@@ -3,7 +3,7 @@ package Recursion;
 public class intro {
     public static void decorder(int n) {
         if (n==1) {
-        System.err.println(n);
+        System.out.println(n);
         return;
         }
 
